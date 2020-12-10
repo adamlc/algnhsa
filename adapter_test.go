@@ -29,6 +29,7 @@ var commonAdapterTestCases = []adapterTestCase{
 		},
 		resp: lambdaResponse{
 			StatusCode:        200,
+			StatusDescription: "200 OK",
 			Body:              "<html>foo</html>",
 			MultiValueHeaders: map[string][]string{"Content-Type": {"text/html; charset=utf-8"}},
 		},
@@ -38,8 +39,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			Path: "/text",
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "ok",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "ok",
 		},
 	},
 	{
@@ -55,8 +57,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "a=[1], b=[2], c=[31 32 33], unknown=[]",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "a=[1], b=[2], c=[31 32 33], unknown=[]",
 		},
 	},
 	{
@@ -64,8 +67,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			Path: "/path/encode%2Ftest%7C",
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "/path/encode/test|",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "/path/encode/test|",
 		},
 	},
 	{
@@ -75,8 +79,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			Body:       "foobar",
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "foobar",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "foobar",
 		},
 	},
 	{
@@ -87,8 +92,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			IsBase64Encoded: true,
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "foobar",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "foobar",
 		},
 	},
 	{
@@ -102,8 +108,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			Body: "f=foo&s=bar&xyz=123",
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "foobar",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "foobar",
 		},
 	},
 	{
@@ -112,6 +119,7 @@ var commonAdapterTestCases = []adapterTestCase{
 		},
 		resp: lambdaResponse{
 			StatusCode:        204,
+			StatusDescription: "204 No Content",
 			MultiValueHeaders: map[string][]string{"Content-Type": {"image/gif"}},
 		},
 	},
@@ -127,7 +135,8 @@ var commonAdapterTestCases = []adapterTestCase{
 			},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
+			StatusCode:        200,
+			StatusDescription: "200 OK",
 			MultiValueHeaders: map[string][]string{
 				"Content-Type": {"text/plain; charset=utf-8"},
 				"X-Bar":        {"baz"},
@@ -144,9 +153,10 @@ var commonAdapterTestCases = []adapterTestCase{
 			BinaryContentTypes: []string{"text/plain; charset=utf-8"},
 		},
 		resp: lambdaResponse{
-			StatusCode:      200,
-			Body:            "b2s=",
-			IsBase64Encoded: true,
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "b2s=",
+			IsBase64Encoded:   true,
 		},
 	},
 	{
@@ -157,9 +167,10 @@ var commonAdapterTestCases = []adapterTestCase{
 			BinaryContentTypes: []string{"*/*"},
 		},
 		resp: lambdaResponse{
-			StatusCode:      200,
-			Body:            "b2s=",
-			IsBase64Encoded: true,
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "b2s=",
+			IsBase64Encoded:   true,
 		},
 	},
 	{
@@ -170,8 +181,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			BinaryContentTypes: []string{"text/html; charset=utf-8"},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "ok",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "ok",
 		},
 	},
 	{
@@ -179,8 +191,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			Path: "/404",
 		},
 		resp: lambdaResponse{
-			StatusCode: 404,
-			Body:       "404 page not found\n",
+			StatusCode:        404,
+			StatusDescription: "404 Not Found",
+			Body:              "404 page not found\n",
 			MultiValueHeaders: map[string][]string{
 				"Content-Type":           {"text/plain; charset=utf-8"},
 				"X-Content-Type-Options": {"nosniff"},
@@ -195,7 +208,8 @@ var commonAdapterTestCases = []adapterTestCase{
 			},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
+			StatusCode:        200,
+			StatusDescription: "200 OK",
 			MultiValueHeaders: map[string][]string{
 				"Content-Type": {"text/plain; charset=utf-8"},
 			},
@@ -210,8 +224,9 @@ var commonAdapterTestCases = []adapterTestCase{
 			},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "/requesturi?foo=bar",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "/requesturi?foo=bar",
 		},
 	},
 }
@@ -230,8 +245,9 @@ var apigwAdapterTestCases = []adapterTestCase{
 			UseProxyPath: true,
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "ok",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "ok",
 		},
 	},
 	{
@@ -244,8 +260,9 @@ var apigwAdapterTestCases = []adapterTestCase{
 			},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "ok",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "ok",
 		},
 	},
 	{
@@ -272,8 +289,9 @@ var albAdapterTestCases = []adapterTestCase{
 			},
 		},
 		resp: lambdaResponse{
-			StatusCode: 200,
-			Body:       "ok",
+			StatusCode:        200,
+			StatusDescription: "200 OK",
+			Body:              "ok",
 		},
 	},
 	{
